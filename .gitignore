@@ -16,7 +16,8 @@ htmlcov/
 .ipynb_checkpoints/
 
 # Data and artifacts
-data/
+data/*
+!data/lotr_dataset.csv
 artifacts/
 models/
 

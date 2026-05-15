@@ -1,18 +1,12 @@
 # ml_test — LOTR NLP mini-project
 
-Проект посвящён тематике **«Властелин колец»** и предназначен для простого NLP-классификатора, обученного на текстовых данных по миру LOTR.
+Проект по тематике **«Властелин колец»**: классификация текстов по персонажам, расам и локациям.
 
-## Цель
+## Что внутри
 
-Сделать минимально рабочий пайплайн, который:
-- принимает фразы по тематике LOTR;
-- предсказывает категорию (`hobbits`, `elves`, `rings`, `mordor`);
-- может быть расширен на полноценный датасет и более сильную модель.
-
-## Структура
-
-- `src/` — код проекта
-- `data/` — данные (игнорируются git)
+- `data/lotr_dataset.csv` — реальный CSV-датасет для обучения (колонки `text`, `label`)
+- `src/main.py` — пайплайн классификации (TF-IDF + LogisticRegression)
+- `scripts/train.py` — обучение модели из CSV и сохранение в `models/`
 - `tests/` — автотесты
 
 ## Быстрый старт
@@ -24,7 +18,13 @@ pip install -r requirements.txt
 pytest -q
 ```
 
-## Как использовать
+## Обучение на CSV
+
+```bash
+python scripts/train.py --data data/lotr_dataset.csv --out models/lotr_model.joblib
+```
+
+## Использование
 
 ```python
 from src.main import train_default_lotr_model, predict_topic
